@@ -1,1 +1,38 @@
-
+class ItemToPurchase:
+    # Default constructor
+    # Initializes item's name = "none", item's price = 0, item's quantity = 0
+    def __init__(self, item_name='none', item_price=0, item_quantity=0):
+        # Attributes
+        self.item_name = item_name
+        self.item_price = item_price
+        self.item_quantity = item_quantity
+    # Method print_item_cost()
+    def print_item_cost(self):
+        string = '{0} {1} @ ${2} = ${3}'.format(self.item_name, self.item_quantity, self.item_price, (self.item_quantity * self.item_price))
+        cost = self.item_quantity * self.item_price
+        return string, cost
+# main section
+if __name__ == "__main__":
+    # prompt the user for item 1
+    print("Item 1")
+    name = input("Enter the item name: ")
+    price = int(input("Enter the item price: "))
+    quant = int(input("Enter the item quantity: "))
+    # create object of the ItemToPurchase class
+    ob1 = ItemToPurchase(name,price,quant)
+    # prompt the user for item 2
+    print("\nItem 2")
+    name = input("Enter the item name: ")
+    price = int(input("Enter the item price: "))
+    quant = int(input("Enter the item quantity: "))
+    # create object of the ItemToPurchase class
+    ob2 = ItemToPurchase(name,price,quant) 
+    print("\nTOTAL COST")
+    # calling method print_item_cost
+    str1,cost1 = ob1.print_item_cost()
+    str2, cost2 = ob2.print_item_cost()
+    print(str1)
+    print(str2)
+    # Adding the costs of the two items together
+    # output the total cost
+    print("\nTotal: $"+str(cost1+cost2))
